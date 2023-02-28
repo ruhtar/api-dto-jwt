@@ -15,12 +15,20 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("add")]
         public IActionResult Add(EmployeeViewModel employeeViewModel)
         {
             var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null);
             _repository.Add(employee);
-            return Ok();
+            return Ok(employee);
+        }
+
+        [HttpGet]
+        [Route("get")]
+        public IActionResult GetGetEmployeesEmployee()
+        {
+            var employees = _repository.GetEmployees();
+            return Ok(employees);
         }
     }
 }

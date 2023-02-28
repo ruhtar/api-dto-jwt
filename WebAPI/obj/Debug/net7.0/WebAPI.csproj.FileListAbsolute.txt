@@ -36,3 +36,8 @@ D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\obj\Debug\net7.0\refint\WebAPI.dl
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.pdb
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\obj\Debug\net7.0\WebAPI.genruntimeconfig.cache
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\obj\Debug\net7.0\ref\WebAPI.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Humanizer.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\System.CodeDom.dll

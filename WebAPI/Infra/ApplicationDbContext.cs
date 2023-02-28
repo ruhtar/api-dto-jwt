@@ -9,11 +9,6 @@ namespace WebAPI.Infra
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=employee_sample;Username=root;Password=1234");
-        }
-
         public DbSet<Employee> Employees { get; set; }
     }
 }
