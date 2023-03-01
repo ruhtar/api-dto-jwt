@@ -11,8 +11,11 @@ namespace WebAPI.Controllers
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _repository;
-        public EmployeeController(IEmployeeRepository repository) {
+        private readonly ILogger<EmployeeController> _logger; 
+        public EmployeeController(IEmployeeRepository repository, ILogger<EmployeeController> logger)
+        {
             _repository = repository;
+            _logger = logger;
         }
         [Authorize]
         [HttpPost]
@@ -23,12 +26,15 @@ namespace WebAPI.Controllers
             _repository.Add(employee);
             return Ok(employee);
         }
-        [Authorize]
         [HttpGet]
         [Route("get")]
-        public IActionResult GetGetEmployeesEmployee()
+        public IActionResult GetEmployeesEmployee()
         {
+            _logger.Log(LogLevel.Error, "Teve um erro");
+
             var employees = _repository.GetEmployees();
+
+            _logger.LogInformation("Teste");
             return Ok(employees);
         }
     }

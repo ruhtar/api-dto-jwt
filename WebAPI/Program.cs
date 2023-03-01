@@ -48,6 +48,7 @@ c.AddSecurityRequirement(new OpenApiSecurityRequirement()
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
+
 var key = Encoding.ASCII.GetBytes(Key.Secret);
 
 builder.Services.AddAuthentication(x =>
@@ -72,9 +73,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseExceptionHandler("/error-development");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+else app.UseExceptionHandler("/error");
 
 app.UseHttpsRedirection();
 
