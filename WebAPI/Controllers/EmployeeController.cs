@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.Infra.Repository;
 using WebAPI.Models;
 using WebAPI.ViewModel;
@@ -13,7 +14,7 @@ namespace WebAPI.Controllers
         public EmployeeController(IEmployeeRepository repository) {
             _repository = repository;
         }
-
+        [Authorize]
         [HttpPost]
         [Route("add")]
         public IActionResult Add(EmployeeViewModel employeeViewModel)
@@ -22,7 +23,7 @@ namespace WebAPI.Controllers
             _repository.Add(employee);
             return Ok(employee);
         }
-
+        [Authorize]
         [HttpGet]
         [Route("get")]
         public IActionResult GetGetEmployeesEmployee()

@@ -41,3 +41,11 @@ D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Entity
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\System.CodeDom.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
