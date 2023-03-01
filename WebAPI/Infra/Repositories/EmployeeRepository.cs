@@ -1,4 +1,5 @@
-﻿using WebAPI.Domain.Models;
+﻿using WebAPI.Domain.DTOs;
+using WebAPI.Domain.Models;
 
 namespace WebAPI.Infra.Repository
 {
@@ -16,9 +17,28 @@ namespace WebAPI.Infra.Repository
             _dbcontext.SaveChanges();
         }
 
-        public List<Employee> GetEmployees()
+        public EmployeeDTO GetEmployee(int id)
         {
-            return _dbcontext.Employees.ToList();
+            var employee = _dbcontext.Employees.Find(id);
+            if (employee == null)
+            {
+                throw new Exception();
+            }
+            return new EmployeeDTO(){
+                NameEmployee= employee.Name,
+                Id = employee.Id
+            };
+        }
+
+        public List<EmployeeDTO> GetEmployees()
+        {
+            return _dbcontext.Employees.Select(e =>
+                new EmployeeDTO()
+                {
+                    NameEmployee = e.Name,
+                    Id = e.Id
+                }
+            ).ToList();
         }
     }
 }

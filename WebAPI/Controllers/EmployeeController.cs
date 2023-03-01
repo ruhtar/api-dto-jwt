@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         }
         [HttpGet]
         [Route("get")]
-        public IActionResult GetEmployeesEmployee()
+        public IActionResult GetEmployees()
         {
             _logger.Log(LogLevel.Error, "Teve um erro");
 
@@ -36,6 +36,15 @@ namespace WebAPI.Controllers
 
             _logger.LogInformation("Teste");
             return Ok(employees);
+        }
+
+
+        [HttpGet]
+        [Route("getById/{id}")]
+        public IActionResult GetEmployeeById([FromRoute] int id)
+        {
+            var employee = _repository.GetEmployee(id);
+            return Ok(employee);
         }
     }
 }
