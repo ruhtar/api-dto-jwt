@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Domain.Models;
 using WebAPI.Infra.Repository;
-using WebAPI.Models;
 using WebAPI.ViewModel;
 
 namespace WebAPI.Controllers

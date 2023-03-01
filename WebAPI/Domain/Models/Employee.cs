@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.Models
+namespace WebAPI.Domain.Models
 {
     public class Employee
     {
@@ -12,9 +12,9 @@ namespace WebAPI.Models
 
         public Employee(string name, int age, string photo)
         {
-            this.Name = name;
-            this.Age = age;
-            this.Photo = photo;
+            Name = name;
+            Age = age;
+            Photo = photo;
         }
 
         public Employee()

@@ -2,10 +2,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using WebAPI.Domain.Models;
 using WebAPI.Infra.Data;
-using WebAPI.Models;
 
-namespace WebAPI.Services
+namespace WebAPI.Application.Services
 {
     public class TokenService
     {
@@ -29,7 +29,7 @@ namespace WebAPI.Services
             var tokenString = tokenHandler.WriteToken(token);
 
             return tokenString;
-            
+
         }
     }
 }

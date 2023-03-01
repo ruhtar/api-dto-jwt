@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebAPI.Models;
-using WebAPI.Services;
+using WebAPI.Application.Services;
+using WebAPI.Domain.Models;
 
 namespace WebAPI.Controllers
 {
@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
         {
             if (username == "teste" && password == "1234")
             {
-                var token = TokenService.GenerateToken(new Models.Employee());
+                var token = TokenService.GenerateToken(new Employee());
                 return Ok(token);
             }
 
