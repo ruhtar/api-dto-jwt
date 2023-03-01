@@ -7,6 +7,6 @@ namespace WebAPI.Infra.Repository
     {
         void Add(Employee employee);
         List<EmployeeDTO> GetEmployees();
-        EmployeeDTO GetEmployee(int id);
+        Employee GetEmployee(int id);
     }
 }

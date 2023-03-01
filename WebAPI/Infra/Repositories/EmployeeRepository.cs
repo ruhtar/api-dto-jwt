@@ -17,17 +17,14 @@ namespace WebAPI.Infra.Repository
             _dbcontext.SaveChanges();
         }
 
-        public EmployeeDTO GetEmployee(int id)
+        public Employee GetEmployee(int id)
         {
             var employee = _dbcontext.Employees.Find(id);
             if (employee == null)
             {
                 throw new Exception();
             }
-            return new EmployeeDTO(){
-                NameEmployee= employee.Name,
-                Id = employee.Id
-            };
+            return employee;
         }
 
         public List<EmployeeDTO> GetEmployees()
