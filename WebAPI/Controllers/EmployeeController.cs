@@ -9,7 +9,7 @@ using WebAPI.ViewModel;
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/v1/employee")]
+    [Route("employee")]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _repository;

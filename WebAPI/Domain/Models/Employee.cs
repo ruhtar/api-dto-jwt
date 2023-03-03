@@ -9,6 +9,7 @@ namespace WebAPI.Domain.Models
         public string Name { get; set; }
         public int Age { get; set; }
         public string? Photo { get; set; }
+        public Company CurrentCompany { get; set; }
 
         public Employee(string name, int age, string photo)
         {
