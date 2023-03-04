@@ -1,13 +1,14 @@
 ﻿using WebAPI.Domain.Models;
+using WebAPI.ViewModel;
 
 namespace WebAPI.Infra.Repositories.CompanyRepository
 {
     public interface ICompanyRepository
     {
-        void Add(Company company);
-        List<Company> GetCompaneis();
-        Company GetCompany(int id);
-        void DeleteCompany(int id);
-        void UpdateCompany(int id, Company companyModel);
+        bool Add(Company company);
+        List<Company> GetCompanies();
+        Company GetCompanyById(int id);
+        bool DeleteCompany(int id);
+        bool UpdateCompany(int id, CompanyViewModel companyModel);
     }
 }

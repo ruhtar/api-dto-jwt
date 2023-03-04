@@ -1,4 +1,5 @@
 ﻿using WebAPI.Domain.Models;
+using WebAPI.ViewModel;
 
 namespace WebAPI.Infra.Repositories.CompanyRepository
 {
@@ -11,31 +12,45 @@ namespace WebAPI.Infra.Repositories.CompanyRepository
             _dbcontext = dbcontext;
         }
 
-        public void Add(Company company)
+        public bool Add(Company company)
         {
             _dbcontext.Add(company);
-            _dbcontext.SaveChanges();
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
         }
 
-        public void DeleteCompany(int id)
+        public bool DeleteCompany(int id)
         {
-            throw new NotImplementedException();
+            var company = GetCompanyById(id);
+            if (company == null)  return false; 
+            _dbcontext.Companies.Remove(company);
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
         }
 
-        public List<Company> GetCompaneis()
+        public List<Company> GetCompanies()
         {
-            throw new NotImplementedException();
+            return _dbcontext.Companies.ToList();
         }
 
-        public Company GetCompany(int id)
+        public Company GetCompanyById(int id)
         {
             var company = _dbcontext.Companies.Find(id);
             return company;
         }
 
-        public void UpdateCompany(int id, Company companyModel)
+        public bool UpdateCompany(int id, CompanyViewModel companyModel)
         {
-            throw new NotImplementedException();
+            var company = GetCompanyById(id);
+            if (company == null)  return false; 
+            company.Address = companyModel.Address;
+            company.Name = companyModel.Name;
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
+
         }
     }
 }

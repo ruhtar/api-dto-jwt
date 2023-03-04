@@ -25,8 +25,8 @@ namespace WebAPI.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("add")]
-        public IActionResult Add([FromBody] EmployeeViewModel employeeViewModel)
+        [Route("register")]
+        public IActionResult RegisterEmployee([FromBody] EmployeeViewModel employeeViewModel)
         {
             //Funciona passa as infos dele e o id da empresa. 
             //Valida se a empresa existe, caso contrario, criá-la

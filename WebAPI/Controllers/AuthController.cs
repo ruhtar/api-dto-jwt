@@ -5,7 +5,7 @@ using WebAPI.Domain.Models;
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/v1/auth")]
+    [Route("/auth")]
     public class AuthController : Controller
     {
         [HttpPost]
