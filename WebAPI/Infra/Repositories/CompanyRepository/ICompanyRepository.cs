@@ -1,7 +1,7 @@
 ﻿using WebAPI.Domain.Models;
 using WebAPI.ViewModel;
 
-namespace WebAPI.Infra.Repositories.CompanyRepository
+namespace WebAPI.Infra.Repositories.CompanyRepositoryName
 {
     public interface ICompanyRepository
     {

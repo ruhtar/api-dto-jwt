@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 using WebAPI.Application.Mapping;
 using WebAPI.Infra;
 using WebAPI.Infra.Data;
-using WebAPI.Infra.Repositories.CompanyRepository;
+using WebAPI.Infra.Repositories.CompanyRepositoryName;
 using WebAPI.Infra.Repositories.EmployeeRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,8 +55,8 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddTransient<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 
 
 var key = Encoding.ASCII.GetBytes(Key.Secret);

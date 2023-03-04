@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Domain.DTOs;
 using WebAPI.Domain.Models;
-using WebAPI.Infra.Repositories.CompanyRepository;
+using WebAPI.Infra.Repositories.CompanyRepositoryName;
 using WebAPI.ViewModel;
 
 namespace WebAPI.Controllers

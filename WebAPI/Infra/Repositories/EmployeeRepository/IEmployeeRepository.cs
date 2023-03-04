@@ -9,6 +9,6 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
         List<Employee> GetEmployees();
         Employee GetEmployee(int id);
         bool DeleteEmployee(int id);
-        bool UpdateEmployee(int id, Employee model);
+        bool UpdateEmployee(int id, UpdateEmployeeDTO model);
     }
 }

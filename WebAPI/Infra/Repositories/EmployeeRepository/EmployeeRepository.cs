@@ -1,5 +1,7 @@
-﻿using WebAPI.Domain.DTOs;
+﻿using AutoMapper;
+using WebAPI.Domain.DTOs;
 using WebAPI.Domain.Models;
+using WebAPI.Infra.Repositories.CompanyRepositoryName;
 
 namespace WebAPI.Infra.Repositories.EmployeeRepository
 {
@@ -7,9 +9,14 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
     {
 
         private readonly ApplicationDbContext _dbcontext;
-        public EmployeeRepository(ApplicationDbContext dbcontext)
+        private readonly IMapper _mapper;
+        private readonly ICompanyRepository _companyRepository;
+
+        public EmployeeRepository(ApplicationDbContext dbcontext, IMapper mapper, ICompanyRepository companyRepository)
         {
             _dbcontext = dbcontext;
+            _mapper = mapper;
+            _companyRepository = companyRepository;
         }
         public bool Add(Employee employee)
         {
@@ -43,15 +50,15 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
             return false;
         }
 
-        public bool UpdateEmployee(int id, Employee model)
+        public bool UpdateEmployee(int id, UpdateEmployeeDTO model)
         {
             var employee = GetEmployee(id);
+            var company = _companyRepository.GetCompanyById(model.CurrentCompanyId);
             if (employee != null)
             {
                 employee.Age = model.Age;
                 employee.Name = model.Name;
-                employee.Photo = model.Photo;
-                employee.CurrentCompany = model.CurrentCompany;
+                employee.CurrentCompany = company;
             }
             int changes = _dbcontext.SaveChanges();
             if (changes > 0) return true;
