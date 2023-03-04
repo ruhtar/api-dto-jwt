@@ -26,8 +26,7 @@ namespace WebAPI.Infra
 
             modelBuilder.Entity<Company>()
             .HasMany(x=>x.Employees)
-            .WithOne(x=>x.CurrentCompany)
-            .IsRequired();
+            .WithOne(x=>x.CurrentCompany);
 
 
             base.OnModelCreating(modelBuilder);

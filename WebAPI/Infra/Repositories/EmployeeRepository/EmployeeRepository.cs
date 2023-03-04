@@ -22,7 +22,7 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
             var employee = _dbcontext.Employees.Find(id);
             if (employee == null)
             {
-                throw new Exception("Usuário não encontrado.");
+                throw new Exception("User not found.");
             }
             return employee;
         }

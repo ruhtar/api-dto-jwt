@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Domain.DTOs;
 using WebAPI.Domain.Models;
+using WebAPI.Infra.Repositories.CompanyRepository;
 using WebAPI.Infra.Repositories.EmployeeRepository;
 using WebAPI.ViewModel;
 
@@ -12,35 +13,23 @@ namespace WebAPI.Controllers
     [Route("employee")]
     public class EmployeeController : ControllerBase
     {
-        private readonly IEmployeeRepository _repository;
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly ICompanyRepository _companyRepository;
         private readonly ILogger<EmployeeController> _logger; 
         private readonly IMapper _mapper;
-        public EmployeeController(IEmployeeRepository repository, ILogger<EmployeeController> logger, IMapper mapper)
+        public EmployeeController(IEmployeeRepository repository, ILogger<EmployeeController> logger, IMapper mapper, ICompanyRepository companyRepository)
         {
-            _repository = repository;
+            _employeeRepository = repository;
             _logger = logger;
             _mapper = mapper;
+            _companyRepository = companyRepository;
         }
-
-
-        [Authorize]
-        [HttpPost]
-        [Route("register")]
-        public IActionResult RegisterEmployee([FromBody] EmployeeViewModel employeeViewModel)
-        {
-            //Funciona passa as infos dele e o id da empresa. 
-            //Valida se a empresa existe, caso contrario, criá-la
-            var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null, null);
-            _repository.Add(employee);
-            return Ok(employee);
-        }
-
 
         [HttpGet]
         [Route("")]
         public IActionResult GetEmployees()
         {
-            var employees = _repository.GetEmployees();
+            var employees = _employeeRepository.GetEmployees();
 
             return Ok(employees);
         }
@@ -50,9 +39,22 @@ namespace WebAPI.Controllers
         [Route("{id}")]
         public IActionResult GetEmployeeById([FromRoute] int id)
         {
-            var employee = _repository.GetEmployee(id);
+            var employee = _employeeRepository.GetEmployee(id);
             return Ok(_mapper.Map<EmployeeDTO>(employee));
         }
+
+
+        [HttpPost]
+        [Route("register")]
+        public IActionResult RegisterEmployee([FromBody] EmployeeViewModel employeeViewModel)
+        {
+            //Funciona passa as infos dele e o id da empresa. 
+            var company = _companyRepository.GetCompanyById(employeeViewModel.CurrentCompanyId);
+            var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null, company);
+            _employeeRepository.Add(employee);
+            return Ok(employee);
+        }
+
 
 
 
