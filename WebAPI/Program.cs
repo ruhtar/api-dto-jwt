@@ -9,7 +9,8 @@ using System.Text;
 using WebAPI.Application.Mapping;
 using WebAPI.Infra;
 using WebAPI.Infra.Data;
-using WebAPI.Infra.Repository;
+using WebAPI.Infra.Repositories.CompanyRepository;
+using WebAPI.Infra.Repositories.EmployeeRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +52,7 @@ c.AddSecurityRequirement(new OpenApiSecurityRequirement()
 });
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<ICompanyRepository, CompanyRepository>();
 
 
 var key = Encoding.ASCII.GetBytes(Key.Secret);

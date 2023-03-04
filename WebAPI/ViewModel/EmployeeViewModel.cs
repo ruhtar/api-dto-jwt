@@ -6,7 +6,7 @@ namespace WebAPI.ViewModel
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public virtual Company CurrentCompany { get; set; }
+        public int CurrentCompanyId { get; set; }
 
     }
 }

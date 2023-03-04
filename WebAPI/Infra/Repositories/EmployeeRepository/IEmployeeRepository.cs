@@ -1,7 +1,7 @@
 ﻿using WebAPI.Domain.DTOs;
 using WebAPI.Domain.Models;
 
-namespace WebAPI.Infra.Repository
+namespace WebAPI.Infra.Repositories.EmployeeRepository
 {
     public interface IEmployeeRepository
     {

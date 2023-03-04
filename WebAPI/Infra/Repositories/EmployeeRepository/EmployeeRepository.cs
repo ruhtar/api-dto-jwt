@@ -1,7 +1,7 @@
 ﻿using WebAPI.Domain.DTOs;
 using WebAPI.Domain.Models;
 
-namespace WebAPI.Infra.Repository
+namespace WebAPI.Infra.Repositories.EmployeeRepository
 {
     public class EmployeeRepository : IEmployeeRepository
     {
@@ -35,14 +35,14 @@ namespace WebAPI.Infra.Repository
         public void DeleteEmployee(int id)
         {
             var employee = GetEmployee(id);
-            if(employee!=null) _dbcontext.Remove(employee);
+            if (employee != null) _dbcontext.Remove(employee);
             _dbcontext.SaveChanges();
         }
 
         public void UpdateEmployee(int id, Employee model)
         {
             var employee = GetEmployee(id);
-            if (employee != null) 
+            if (employee != null)
             {
                 employee.Age = model.Age;
                 employee.Name = model.Name;
