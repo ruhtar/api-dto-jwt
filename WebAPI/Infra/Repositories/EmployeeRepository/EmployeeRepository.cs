@@ -11,10 +11,12 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
         {
             _dbcontext = dbcontext;
         }
-        public void Add(Employee employee)
+        public bool Add(Employee employee)
         {
             _dbcontext.Add(employee);
-            _dbcontext.SaveChanges();
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
         }
 
         public Employee GetEmployee(int id)
@@ -32,14 +34,16 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
             return _dbcontext.Employees.ToList();
         }
 
-        public void DeleteEmployee(int id)
+        public bool DeleteEmployee(int id)
         {
             var employee = GetEmployee(id);
             if (employee != null) _dbcontext.Remove(employee);
-            _dbcontext.SaveChanges();
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
         }
 
-        public void UpdateEmployee(int id, Employee model)
+        public bool UpdateEmployee(int id, Employee model)
         {
             var employee = GetEmployee(id);
             if (employee != null)
@@ -49,7 +53,9 @@ namespace WebAPI.Infra.Repositories.EmployeeRepository
                 employee.Photo = model.Photo;
                 employee.CurrentCompany = model.CurrentCompany;
             }
-            _dbcontext.SaveChanges();
+            int changes = _dbcontext.SaveChanges();
+            if (changes > 0) return true;
+            return false;
         }
     }
 }
