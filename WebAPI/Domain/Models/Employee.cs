@@ -10,11 +10,12 @@ namespace WebAPI.Domain.Models
         public string? Photo { get; set; }
         public virtual Company CurrentCompany { get; set; }
 
-        public Employee(string name, int age, string photo)
+        public Employee(string name, int age, string photo, Company company)
         {
             Name = name;
             Age = age;
             Photo = photo;
+            CurrentCompany = company;
         }
 
         public Employee()

@@ -22,20 +22,34 @@ namespace WebAPI.Infra.Repository
             var employee = _dbcontext.Employees.Find(id);
             if (employee == null)
             {
-                throw new Exception();
+                throw new Exception("Usuário não encontrado.");
             }
             return employee;
         }
 
-        public List<EmployeeDTO> GetEmployees()
+        public List<Employee> GetEmployees()
         {
-            return _dbcontext.Employees.Select(e =>
-                new EmployeeDTO()
-                {
-                    NameEmployee = e.Name,
-                    Id = e.Id
-                }
-            ).ToList();
+            return _dbcontext.Employees.ToList();
+        }
+
+        public void DeleteEmployee(int id)
+        {
+            var employee = GetEmployee(id);
+            if(employee!=null) _dbcontext.Remove(employee);
+            _dbcontext.SaveChanges();
+        }
+
+        public void UpdateEmployee(int id, Employee model)
+        {
+            var employee = GetEmployee(id);
+            if (employee != null) 
+            {
+                employee.Age = model.Age;
+                employee.Name = model.Name;
+                employee.Photo = model.Photo;
+                employee.CurrentCompany = model.CurrentCompany;
+            }
+            _dbcontext.SaveChanges();
         }
     }
 }

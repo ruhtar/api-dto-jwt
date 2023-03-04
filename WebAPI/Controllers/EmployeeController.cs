@@ -21,42 +21,40 @@ namespace WebAPI.Controllers
             _logger = logger;
             _mapper = mapper;
         }
+
+
         [Authorize]
         [HttpPost]
         [Route("add")]
-        public IActionResult Add(EmployeeViewModel employeeViewModel)
+        public IActionResult Add([FromBody] EmployeeViewModel employeeViewModel)
         {
-            var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null);
+            //Funciona passa as infos dele e o id da empresa. 
+            //Valida se a empresa existe, caso contrario, criá-la
+            var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null, null);
             _repository.Add(employee);
             return Ok(employee);
         }
+
+
         [HttpGet]
-        [Route("get")]
+        [Route("")]
         public IActionResult GetEmployees()
         {
-            _logger.Log(LogLevel.Error, "Teve um erro");
-
             var employees = _repository.GetEmployees();
 
-            _logger.LogInformation("Teste");
             return Ok(employees);
         }
 
 
         [HttpGet]
-        [Route("getById/{id}")]
-        public IActionResult GetEmployeeById([FromRoute] int id)
-        {
-            var employee = _repository.GetEmployee(id);
-            return Ok(employee);
-        }
-
-        [HttpGet]
         [Route("{id}")]
-        public IActionResult Search([FromRoute] int id)
+        public IActionResult GetEmployeeById([FromRoute] int id)
         {
             var employee = _repository.GetEmployee(id);
             return Ok(_mapper.Map<EmployeeDTO>(employee));
         }
+
+
+
     }
 }

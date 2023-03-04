@@ -6,7 +6,9 @@ namespace WebAPI.Infra.Repository
     public interface IEmployeeRepository
     {
         void Add(Employee employee);
-        List<EmployeeDTO> GetEmployees();
+        List<Employee> GetEmployees();
         Employee GetEmployee(int id);
+        void DeleteEmployee(int id);
+        void UpdateEmployee(int id, Employee model);
     }
 }

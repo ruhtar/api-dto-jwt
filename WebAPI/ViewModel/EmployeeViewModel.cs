@@ -1,8 +1,12 @@
-﻿namespace WebAPI.ViewModel
+﻿using WebAPI.Domain.Models;
+
+namespace WebAPI.ViewModel
 {
     public class EmployeeViewModel
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        public virtual Company CurrentCompany { get; set; }
+
     }
 }
