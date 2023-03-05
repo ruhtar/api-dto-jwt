@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Domain.DTOs;
+using WebAPI.Domain.DTOs.CompanyDTOs;
 using WebAPI.Domain.Models;
 using WebAPI.Infra.Repositories.CompanyRepositoryName;
 using WebAPI.ViewModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace WebAPI.Controllers
 {
@@ -32,7 +34,12 @@ namespace WebAPI.Controllers
         public IActionResult GetCompanies()
         {
             var companies = _companyRepository.GetCompanies();
-            return Ok(companies);
+            var companiesDTO = new List<ReadCompanyDTO>();
+            foreach (var item in companies)
+            {
+                companiesDTO.Add(_mapper.Map<ReadCompanyDTO>(item));
+            }
+            return Ok(companiesDTO);
         }
 
         [HttpPost]

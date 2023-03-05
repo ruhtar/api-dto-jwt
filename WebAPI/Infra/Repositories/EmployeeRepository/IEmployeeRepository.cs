@@ -1,4 +1,4 @@
-﻿using WebAPI.Domain.DTOs;
+﻿using WebAPI.Domain.DTOs.EmployeeDTOs;
 using WebAPI.Domain.Models;
 
 namespace WebAPI.Infra.Repositories.EmployeeRepository

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using WebAPI.Domain.DTOs;
+using WebAPI.Domain.DTOs.EmployeeDTOs;
 using WebAPI.Domain.Models;
 using WebAPI.Infra.Repositories.CompanyRepositoryName;
 

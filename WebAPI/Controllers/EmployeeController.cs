@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata;
-using WebAPI.Domain.DTOs;
+using WebAPI.Domain.DTOs.EmployeeDTOs;
 using WebAPI.Domain.Models;
 using WebAPI.Infra.Repositories.CompanyRepositoryName;
 using WebAPI.Infra.Repositories.EmployeeRepository;

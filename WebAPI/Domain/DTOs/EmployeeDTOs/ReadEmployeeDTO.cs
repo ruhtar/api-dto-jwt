@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Domain.DTOs
+﻿namespace WebAPI.Domain.DTOs.EmployeeDTOs
 {
     public class ReadEmployeeDTO
     {

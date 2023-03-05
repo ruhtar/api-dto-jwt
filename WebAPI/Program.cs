@@ -17,13 +17,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
+//-------------- JSON ---------------------------
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddEndpointsApiExplorer();
 
+//-------------- PROFILE MAPPING ---------------------------
 builder.Services.AddAutoMapper(typeof(EmployeeProfile));
+builder.Services.AddAutoMapper(typeof(CompanyProfile));
+//----------------------------------------------------------
 builder.Services.AddSwaggerGen(c =>
 {
 
@@ -55,8 +58,13 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//-------------- DI ---------------------------------------
+
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+
+//----------------------------------------------------------
 
 
 var key = Encoding.ASCII.GetBytes(Key.Secret);
