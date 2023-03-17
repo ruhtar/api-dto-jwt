@@ -51,6 +51,14 @@ D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Identi
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\AutoMapper.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Castle.Core.dll
 D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\WebAPI.staticwebassets.runtime.json
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\PROGRAMAÇÃO\Projetos\WebAPI\WebAPI\WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

@@ -73,5 +73,13 @@ namespace WebAPI.Controllers
             if (isSucceded) return Ok("Company status updated.");
             return NotFound();
         }
+
+        [HttpGet]
+        [Route("/{id}/employees")]
+        public IActionResult GetEmployeesByCompanyId(int id) {
+            var company = _companyRepository.GetCompanyById(id);
+            if (company == null) return BadRequest("Company not found.");
+            return Ok(company.Employees);
+        }
     }
 }

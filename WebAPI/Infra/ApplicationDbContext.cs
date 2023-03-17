@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using WebAPI.Domain.Models;
 
@@ -10,6 +11,9 @@ namespace WebAPI.Infra
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.UseLazyLoadingProxies(false);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +34,7 @@ namespace WebAPI.Infra
 
 
             base.OnModelCreating(modelBuilder);
-
+            
         }
 
         public DbSet<Employee> Employees { get; set; }
