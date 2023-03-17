@@ -6,7 +6,7 @@ namespace WebAPI.Controllers
 {
     [ApiController]
     [Route("/auth")]
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         [HttpPost]
         public IActionResult Auth(string username, string password)

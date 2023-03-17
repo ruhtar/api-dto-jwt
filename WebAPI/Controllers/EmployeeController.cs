@@ -55,6 +55,7 @@ namespace WebAPI.Controllers
         {
             //Funciona passa as infos dele e o id da empresa. 
             var company = _companyRepository.GetCompanyById(employeeViewModel.CurrentCompanyId);
+            if (company == null) return BadRequest("Company not found");
             var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null, company);
             var isSucced = _employeeRepository.Add(employee);
             if (isSucced) return Created("", employee);
